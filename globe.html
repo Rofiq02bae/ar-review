@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MindAR + GLB Example</title>
+    <title>AR Globe MindAR + Three.js</title>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-three.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
@@ -25,10 +25,10 @@
         scene.add(light);
 
         const loader = new THREE.GLTFLoader();
-        loader.load("earth.glb", (gltf) => {
+        loader.load("./earth_globe_hologram_2mb_looping_animation.glb", (gltf) => {
           const model = gltf.scene;
-          model.scale.set(0.1, 0.1, 0.1);
-          model.rotation.x = Math.PI / 2;
+          model.scale.set(0.2, 0.2, 0.2);
+          model.position.set(0, 0, 0);
           anchor.group.add(model);
         });
 
