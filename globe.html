@@ -9,7 +9,7 @@
     <a-scene mindar-image="imageTargetSrc: ./targets.mind; showStats: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/band.mind;" />
-        <a-asset-item id="avatarModel" src="https://sketchfab.com/models/9d9192dfcdfd48b3ac15f0f03dfd9d2c/embed?transparent=1"></a-asset-item>
+        <a-asset-item id="avatarModel" src="https://raw.githubusercontent.com/microsoft/mixed-reality-extension-sdk-samples/refs/heads/master/samples/solar-system/public/assets/earth.gltf"></a-asset-item>
       </a-assets>
 
 
@@ -18,7 +18,7 @@
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.15 0.15 0.15" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
     </a-scene>
   </body>
