@@ -15,7 +15,7 @@
       document.addEventListener("DOMContentLoaded", async () => {
         const mindarThree = new window.MINDAR.IMAGE.MindARThree({
           container: document.body,
-          imageTargetSrc: "https://raw.githubusercontent.com/Rofiq02bae/ar-review/main/bumi.mind",
+          imageTargetSrc: "./targets.mind",
         });
 
         const { renderer, scene, camera } = mindarThree;
@@ -25,7 +25,7 @@
         scene.add(light);
 
         const loader = new THREE.GLTFLoader();
-        loader.load("https://raw.githubusercontent.com/Rofiq02bae/ar-review/2527d3f243b3330ec77d71d636aedc9bd90e510c/scene.gltf", (gltf) => {
+        loader.load("./scene.gltf", (gltf) => {
           const model = gltf.scene;
           model.scale.set(0.1, 0.1, 0.1);
           model.position.set(0, 0, 0);
