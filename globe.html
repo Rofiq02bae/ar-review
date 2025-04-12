@@ -1,42 +1,25 @@
-<!DOCTYPE html>
+
 <html>
   <head>
-    <title>AR Globe MindAR + Three.js</title>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-three.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
-    <style>
-      body { margin: 0; overflow: hidden; }
-      canvas { position: absolute; top: 0; left: 0; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-          container: document.body,
-          imageTargetSrc: "./targets.mind",
-        });
+    <a-scene mindar-image="imageTargetSrc: ./targets2.mind; showStats: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+        <img id="card" src="https://github.com/microsoft/mixed-reality-extension-sdk-samples/blob/master/samples/solar-system/public/assets/earth.jpg" />
+        <a-asset-item id="avatarModel" src="https://github.com/microsoft/mixed-reality-extension-sdk-samples/blob/master/samples/solar-system/public/assets/earth.gltf"></a-asset-item>
+      </a-assets>
 
-        const { renderer, scene, camera } = mindarThree;
-        const anchor = mindarThree.addAnchor(0);
 
-        const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
-        scene.add(light);
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-        const loader = new THREE.GLTFLoader();
-        loader.load("./earth_globe_hologram_2mb_looping_animation.glb", (gltf) => {
-          const model = gltf.scene;
-          model.scale.set(0.2, 0.2, 0.2);
-          model.position.set(0, 0, 0);
-          anchor.group.add(model);
-        });
 
-        await mindarThree.start();
-        renderer.setAnimationLoop(() => {
-          renderer.render(scene, camera);
-        });
-      });
-    </script>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+      </a-entity>
+    </a-scene>
   </body>
 </html>
