@@ -8,16 +8,8 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: targets2.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <img id="card" src="https://github.com/microsoft/mixed-reality-extension-sdk-samples/blob/master/samples/solar-system/public/assets/earth.jpg" />
-       # <a-asset-item id="avatarModel" src="https://github.com/microsoft/mixed-reality-extension-sdk-samples/blob/master/samples/solar-system/public/assets/earth.gltf"></a-asset-item>
-        <script>
-          loader.load("https://raw.githubusercontent.com/microsoft/mixed-reality-extension-sdk-samples/master/samples/solar-system/public/assets/earth.gltf", (gltf) => {
-  const model = gltf.scene;
-  model.scale.set(0.2, 0.2, 0.2);
-  anchor.group.add(model);
-});
-        </script>
-        
+        <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/card-example/card.png" />
+        <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
